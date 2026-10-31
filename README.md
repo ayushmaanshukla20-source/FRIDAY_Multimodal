@@ -1,10 +1,18 @@
+﻿---
+# FRIDAY: Multimodal AI Desktop Assistant
+**Author:** Ayushmaan Shukla  
+**Roll / Enrollment No.:** 202510101240164  
+**Department:** Computer Science & Engineering (AI & ML)  
+**Institution:** Shri Ramswaroop Memorial University  
+> **Notice:** This repository and its accompanying materials are submitted for academic evaluation. Unauthorized duplication, modification, or plagiarism is strictly prohibited.
+---
 # Avatar-Chat-Interface & F.R.I.D.A.Y. Chrome Automation Bridge
 
 A production-grade, cybernetic 3D AI assistant combining real-time Three.js behavioral gestures, continuous hands-free voice turn-taking (STT/TTS), and a local Python backend bridge for desktop Chrome browser automation.
 
 ---
 
-## 🏛️ System Architecture
+## ðŸ›ï¸ System Architecture
 
 ```
 +-------------------------------------------------------+
@@ -26,7 +34,7 @@ A production-grade, cybernetic 3D AI assistant combining real-time Three.js beha
 
 ---
 
-## 🚀 Quick Start
+## ðŸš€ Quick Start
 
 ### 1. Requirements & Dependencies
 Ensure your Python virtual environment has the required dependencies:
@@ -47,19 +55,19 @@ You can start both servers simultaneously using the provided batch script:
 
 Or run each service in separate terminals:
 
-**Terminal 1 — Local Python Bridge (Port 8000):**
+**Terminal 1 â€” Local Python Bridge (Port 8000):**
 ```powershell
 .\venv\Scripts\python.exe backend/app.py
 ```
 
-**Terminal 2 — React Avatar Frontend (Port 5173):**
+**Terminal 2 â€” React Avatar Frontend (Port 5173):**
 ```powershell
 npm --prefix avatar-chat-interface run dev
 ```
 
 ---
 
-## 🌐 Supported Chrome Automation Directives
+## ðŸŒ Supported Chrome Automation Directives
 
 The React frontend automatically parses spoken or typed commands before sending to conversational AI:
 
@@ -73,7 +81,7 @@ The React frontend automatically parses spoken or typed commands before sending 
 
 ---
 
-## 📡 API Endpoint Reference
+## ðŸ“¡ API Endpoint Reference
 
 ### `POST /api/chrome`
 **Payload Example:**
@@ -97,4 +105,5 @@ The React frontend automatically parses spoken or typed commands before sending 
   }
 }
 ```
+
 

@@ -1,4 +1,12 @@
-# DESIGN.md — Avatar-Chat-Interface Design System
+﻿---
+# FRIDAY: Multimodal AI Desktop Assistant
+**Author:** Ayushmaan Shukla  
+**Roll / Enrollment No.:** 202510101240164  
+**Department:** Computer Science & Engineering (AI & ML)  
+**Institution:** Shri Ramswaroop Memorial University  
+> **Notice:** This repository and its accompanying materials are submitted for academic evaluation. Unauthorized duplication, modification, or plagiarism is strictly prohibited.
+---
+# DESIGN.md â€” Avatar-Chat-Interface Design System
 
 ## 1. Overview & Aesthetic Vision
 The **Avatar-Chat-Interface** frontend is engineered with an advanced, futuristic dark-mode cybernetic aesthetic tailored for real-time 3D AI interaction. It blends deep obsidian void tones (`#07080d`) with reactive glassmorphism, crisp typography, and multi-layered atmospheric lighting in cyan, electric blue, and ultraviolet.
@@ -80,4 +88,5 @@ The **Avatar-Chat-Interface** frontend is engineered with an advanced, futuristi
 |                                                             |   - Glowing Send button            |
 +-------------------------------------------------------------+------------------------------------+
 ```
+
 

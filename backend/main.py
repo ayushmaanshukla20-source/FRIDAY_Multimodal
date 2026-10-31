@@ -1,3 +1,12 @@
+﻿"""
+FRIDAY Multimodal Voice Assistant
+Author: Ayushmaan Shukla
+Roll / Enrollment No.: 202510101240164
+Department: Computer Science & Engineering (AI & ML)
+Institution: Shri Ramswaroop Memorial University
+Notice: This project is strictly for academic evaluation. 
+        Unauthorized reproduction or submission is a violation of academic integrity.
+"""
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -105,3 +114,4 @@ def root():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("backend.main:app", host=settings.app_host, port=settings.app_port, reload=True)
+

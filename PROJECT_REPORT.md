@@ -1,3 +1,11 @@
+﻿---
+# FRIDAY: Multimodal AI Desktop Assistant
+**Author:** Ayushmaan Shukla  
+**Roll / Enrollment No.:** 202510101240164  
+**Department:** Computer Science & Engineering (AI & ML)  
+**Institution:** Shri Ramswaroop Memorial University  
+> **Notice:** This repository and its accompanying materials are submitted for academic evaluation. Unauthorized duplication, modification, or plagiarism is strictly prohibited.
+---
 # ACADEMIC PROJECT REPORT
 
 ---
@@ -233,27 +241,27 @@ flowchart TD
 
 ```text
 Incoming Spoken Command
-         │
-         ▼
+         â”‚
+         â–¼
 [Normalizer: Strip Wake Words, Punctuation, Conversational Fluff]
-         │
-         ├──► [Domain 0: Creator & Identity Protocol]
-         │        Match: "who created you", "who made you"
-         │        Action: Return Ayushmaan Shukla declaration (0ms)
-         │
-         ├──► [Domain 1: Music & Acoustic Playback]
-         │        Match: "play *", "pause music", "resume", "skip track"
-         │        Action: Dispatch to yt-dlp / Windows Media Player stream
-         │
-         ├──► [Domain 2: Browser & Web Navigation]
-         │        Match: "search * in chrome", "open youtube", "open website"
-         │        Action: Invoke desktop_control.open_chrome()
-         │
-         ├──► [Domain 3: Desktop & System Application Ops]
-         │        Match: "open notepad", "open calculator", "open vs code"
-         │        Action: Execute allowlisted Windows executable
-         │
-         └──► [Domain 4: Generative AI, RAG & Vision Core]
+         â”‚
+         â”œâ”€â”€â–º [Domain 0: Creator & Identity Protocol]
+         â”‚        Match: "who created you", "who made you"
+         â”‚        Action: Return Ayushmaan Shukla declaration (0ms)
+         â”‚
+         â”œâ”€â”€â–º [Domain 1: Music & Acoustic Playback]
+         â”‚        Match: "play *", "pause music", "resume", "skip track"
+         â”‚        Action: Dispatch to yt-dlp / Windows Media Player stream
+         â”‚
+         â”œâ”€â”€â–º [Domain 2: Browser & Web Navigation]
+         â”‚        Match: "search * in chrome", "open youtube", "open website"
+         â”‚        Action: Invoke desktop_control.open_chrome()
+         â”‚
+         â”œâ”€â”€â–º [Domain 3: Desktop & System Application Ops]
+         â”‚        Match: "open notepad", "open calculator", "open vs code"
+         â”‚        Action: Execute allowlisted Windows executable
+         â”‚
+         â””â”€â”€â–º [Domain 4: Generative AI, RAG & Vision Core]
                   Match: Complex academic questions, OCR, math problems
                   Action: Query Gemini 3.1 Flash-Lite + ChromaDB context
 ```
@@ -515,8 +523,8 @@ The system includes automated test suites executed via `pytest` located in `back
 
 ### 7.1 Current Constraints
 1. **Operating System Coupling**: Certain desktop automation routines (`pywin32`, Windows COM media objects, and SAPI5 TTS) are specifically tuned for Windows 10/11 environments and require abstraction layers for native Linux/macOS execution.
-2. **Cloud LLM Latency Dependency**: Conversational reasoning and RAG vector generation require network round-trips to the Gemini API (`gemini-3.1-flash-lite`), introducing a 400ms–800ms dependency on WAN stability.
-3. **Audio Extraction Overhead**: Streaming un-cached music tracks requires 1.2–2.0 seconds of initial stream resolution via `yt-dlp` before local audio buffer playback begins.
+2. **Cloud LLM Latency Dependency**: Conversational reasoning and RAG vector generation require network round-trips to the Gemini API (`gemini-3.1-flash-lite`), introducing a 400msâ€“800ms dependency on WAN stability.
+3. **Audio Extraction Overhead**: Streaming un-cached music tracks requires 1.2â€“2.0 seconds of initial stream resolution via `yt-dlp` before local audio buffer playback begins.
 
 ### 7.2 Prospective Research & Architectural Roadmap
 - **Local Neural Processing (Ollama / ONNX)**: Integrate small, quantized local models (e.g., Llama 3 8B Q4 or Mistral 7B) using Ollama (`http://localhost:11434`) to enable complete, zero-data-leakage offline conversational reasoning.
@@ -550,4 +558,5 @@ The modular architecture ensures that F.R.I.D.A.Y. remains resilient against ext
 8. **Microsoft Corporation.** (2023). *Microsoft Speech API (SAPI) 5.4 Architecture and Implementation Guide*. Microsoft Developer Network.
 
 ---
-*End of Project Report — F.R.I.D.A.Y. Autonomous Voice Assistant*
+*End of Project Report â€” F.R.I.D.A.Y. Autonomous Voice Assistant*
+

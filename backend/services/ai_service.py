@@ -1,3 +1,12 @@
+﻿"""
+FRIDAY Multimodal Voice Assistant
+Author: Ayushmaan Shukla
+Roll / Enrollment No.: 202510101240164
+Department: Computer Science & Engineering (AI & ML)
+Institution: Shri Ramswaroop Memorial University
+Notice: This project is strictly for academic evaluation. 
+        Unauthorized reproduction or submission is a violation of academic integrity.
+"""
 import os
 from typing import List, Dict, Any, Optional
 import httpx
@@ -198,3 +207,4 @@ class AIService:
             return f"Boss, could not connect to local Ollama service at {settings.ollama_base_url}: {str(e)}"
 
 ai_service = AIService()
+
