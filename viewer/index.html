@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F.R.I.D.A.Y. 3D Holographic Viewport</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <div id="canvas-container">
+    <!-- Rotating Holographic Circular HUD Reticles -->
+    <div class="hud-reticle"></div>
+    <div class="hud-reticle-inner"></div>
+
+    <!-- HUD Header -->
+    <div class="hud-header">
+      <div class="hud-title-box">
+        <span class="hud-logo">F.R.I.D.A.Y. // 3D HUD</span>
+        <span class="hud-status-badge">ACTIVE</span>
+        <span id="hud-model-name" style="font-size:12px; color:#e2f1ff; font-weight:600; margin-left:8px;">Holographic Assembly</span>
+      </div>
+
+      <div class="hud-telemetry">
+        <span>POLYS: <strong id="hud-poly-count">0</strong></span>
+        <span>COMPONENTS: <strong id="hud-mesh-count">0</strong></span>
+        <span>ENGINE: <strong>THREE.JS</strong></span>
+      </div>
+    </div>
+
+    <!-- HUD Floating Toolbar -->
+    <div class="hud-toolbar">
+      <button class="hud-btn" id="btn-wireframe" onclick="fridayViewer.toggleWireframe()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        Wireframe
+      </button>
+
+      <button class="hud-btn active" id="btn-autorotate" onclick="fridayViewer.toggleAutoRotate()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+        Rotate
+      </button>
+
+      <button class="hud-btn active" id="btn-grid" onclick="fridayViewer.toggleGrid()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Grid
+      </button>
+
+      <button class="hud-btn" onclick="fridayViewer.zoomCamera(0.75)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        Zoom +
+      </button>
+
+      <button class="hud-btn" onclick="fridayViewer.zoomCamera(1.3)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        Zoom -
+      </button>
+
+      <button class="hud-btn" onclick="fridayViewer.resetView()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+        Reset
+      </button>
+
+      <button class="hud-btn" onclick="fridayViewer.toggleHierarchyPanel()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+        Hierarchy
+      </button>
+
+      <select onchange="fridayViewer.loadProceduralModel(this.value)" style="background:rgba(0,240,255,0.08); border:1px solid rgba(0,240,255,0.3); color:#00f0ff; font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:600; padding:4px 8px; border-radius:20px; outline:none; cursor:pointer;">
+        <option value="reactor" style="background:#050811;">Arc Reactor</option>
+        <option value="satellite" style="background:#050811;">Orbital Satellite</option>
+        <option value="torus" style="background:#050811;">Quantum Torus</option>
+        <option value="cube" style="background:#050811;">Cybernetic Cube</option>
+      </select>
+    </div>
+
+    <!-- Hierarchy & Component Metadata Panel -->
+    <div class="hud-side-panel collapsed" id="hierarchy-panel">
+      <div class="panel-title">
+        <span>Component Tree</span>
+        <span class="panel-close-btn" onclick="fridayViewer.toggleHierarchyPanel()">✕</span>
+      </div>
+      <ul class="hierarchy-list" id="hierarchy-list"></ul>
+      <div id="selected-details" style="margin-top:12px; border-top:1px solid rgba(0,240,255,0.2); padding-top:8px;"></div>
+    </div>
+
+    <!-- Drag & Drop Overlay -->
+    <div class="drop-overlay" id="drop-overlay">
+      <div class="drop-text">DROP GLB / GLTF MODEL ASSET TO PROJECT</div>
+    </div>
+  </div>
+
+  <!-- CDN Three.js Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="viewer.js"></script>
+</body>
+</html>

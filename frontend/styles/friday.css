@@ -1,0 +1,234 @@
+/* ==============================================================================
+   F.R.I.D.A.Y. Futuristic Cybernetic / Holographic Interface Theme for Streamlit
+   ============================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --friday-cyan: #00f0ff;
+  --friday-blue: #0070f3;
+  --friday-deep-blue: #091326;
+  --friday-dark-bg: #000000;
+  --friday-panel-bg: #050811;
+  --friday-border: rgba(0, 240, 255, 0.4);
+  --friday-glow: rgba(0, 240, 255, 0.4);
+  --friday-text: #ffffff;
+  --friday-text-muted: #8ab4f8;
+  --friday-success: #00ffaa;
+  --friday-danger: #ff3366;
+}
+
+/* Base Body and Text */
+body, html, .stApp {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+}
+
+/* Ensure ALL paragraphs, spans, and markdown text are bright and 100% visible */
+p, span, li, label, .stMarkdown, .stMarkdown p, [data-testid="stMarkdownContainer"] p, [data-testid="stMarkdownContainer"] span {
+  color: #ffffff !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', monospace !important;
+  letter-spacing: 1.5px !important;
+  color: #ffffff !important;
+}
+
+h1 {
+  color: var(--friday-cyan) !important;
+  text-shadow: 0 0 14px var(--friday-glow) !important;
+  font-weight: 800 !important;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+  background-color: #050811 !important;
+  border-right: 1px solid var(--friday-border) !important;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.9) !important;
+}
+
+[data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] label {
+  color: #ffffff !important;
+}
+
+[data-testid="stSidebarNav"] {
+  background: transparent !important;
+}
+
+/* Hero Cards */
+.friday-hero-card {
+  background: linear-gradient(135deg, #050811 0%, #0a1224 100%) !important;
+  border: 1px solid var(--friday-border) !important;
+  border-left: 5px solid var(--friday-cyan) !important;
+  border-radius: 8px;
+  padding: 16px 22px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.friday-hero-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--friday-cyan) !important;
+  text-shadow: 0 0 12px var(--friday-cyan);
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.friday-hero-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--friday-text-muted) !important;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* Status Pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.status-pill.online {
+  background: rgba(0, 255, 170, 0.15);
+  color: #00ffaa !important;
+  border: 1px solid rgba(0, 255, 170, 0.5);
+  box-shadow: 0 0 8px rgba(0, 255, 170, 0.3);
+}
+
+/* Chat Messages — Pure Black Card Background with High-Contrast White Font */
+[data-testid="stChatMessage"] {
+  background-color: #050811 !important;
+  border: 1px solid var(--friday-border) !important;
+  border-radius: 10px !important;
+  padding: 16px 20px !important;
+  margin-bottom: 14px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) {
+  border-left: 4px solid var(--friday-cyan) !important;
+  background: linear-gradient(90deg, rgba(0, 112, 243, 0.15) 0%, #050811 100%) !important;
+}
+
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+  border-right: 4px solid #0070f3 !important;
+  background: linear-gradient(270deg, rgba(0, 112, 243, 0.12) 0%, #050811 100%) !important;
+}
+
+[data-testid="stChatMessage"] p, [data-testid="stChatMessage"] span, [data-testid="stChatMessage"] div {
+  color: #ffffff !important;
+  font-weight: 400 !important;
+}
+
+/* Chat Input Box — Pure Black Background with Glowing Cyan Border & Crisp White Font */
+[data-testid="stChatInput"], [data-testid="stChatInput"] > div {
+  background-color: #000000 !important;
+  border: 1px solid var(--friday-cyan) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25) !important;
+}
+
+[data-testid="stChatInput"] textarea, [data-testid="stChatInputTextArea"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  font-size: 15px !important;
+  caret-color: var(--friday-cyan) !important;
+}
+
+[data-testid="stChatInput"] textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Standard Inputs & Text Areas — Black Background with High-Contrast White Font */
+.stTextInput > div > div > input, 
+.stTextArea > div > div > textarea,
+input[type="text"], input[type="password"] {
+  background-color: #000000 !important;
+  border: 1px solid var(--friday-border) !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+}
+
+.stTextInput > div > div > input:focus, 
+.stTextArea > div > div > textarea:focus {
+  border-color: var(--friday-cyan) !important;
+  box-shadow: 0 0 12px var(--friday-glow) !important;
+  color: #ffffff !important;
+}
+
+/* Code Blocks — Deep Black Background with High-Contrast Cyan/White Text */
+code, pre, .stCodeBlock {
+  background-color: #050811 !important;
+  color: var(--friday-cyan) !important;
+  border: 1px solid var(--friday-border) !important;
+  border-radius: 6px !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+/* Buttons */
+.stButton > button {
+  background: linear-gradient(180deg, #091a38 0%, #050d1e 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--friday-border) !important;
+  border-radius: 6px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  transition: all 0.2s ease !important;
+}
+
+.stButton > button:hover {
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.3) 0%, #091a38 100%) !important;
+  border-color: var(--friday-cyan) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px var(--friday-glow) !important;
+}
+
+/* Citation Box */
+.citation-box {
+  background: #050811 !important;
+  border: 1px dashed var(--friday-border) !important;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-top: 10px;
+}
+.citation-header {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--friday-cyan) !important;
+  margin-bottom: 6px;
+}
+.citation-item {
+  color: #e2f1ff !important;
+  margin-bottom: 4px;
+}
+
+/* Expanders */
+[data-testid="stExpander"] {
+  background-color: #050811 !important;
+  border: 1px solid var(--friday-border) !important;
+  border-radius: 6px !important;
+}
+[data-testid="stExpander"] details summary {
+  color: #ffffff !important;
+}

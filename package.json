@@ -1,0 +1,11 @@
+{
+  "name": "jarvis-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix avatar-chat-interface run dev",
+    "build": "npm --prefix avatar-chat-interface run build",
+    "preview": "npm --prefix avatar-chat-interface run preview",
+    "backend": "python backend/app.py"
+  }
+}
